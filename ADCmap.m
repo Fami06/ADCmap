@@ -17,7 +17,7 @@ title('b1000');
 axis image;
 
 %2枚の画像からADCmapを作成する
-a = lowbimg./highbimg;
+a = (double(lowbimg))./(double(highbimg));
 figure(3);
 imagesc(a);
 colormap('gray');
@@ -36,3 +36,14 @@ imagesc(ADC);
 colormap('gray');
 title('ADCmap');
 axis image;
+colorbar;
+
+min_signal_value = min(ADC(:));
+max_signal_value = max(ADC(:));
+
+fprintf('最小信号値: %f\n', min_signal_value);
+fprintf('最大信号値: %f\n', max_signal_value);
+
+lim = caxis;
+caxis([0, 0.0038]);
+
