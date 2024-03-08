@@ -38,6 +38,7 @@ title('ADCmap');
 axis image;
 colorbar;
 
+%ここからはウィンドウの調節
 min_signal_value = min(ADC(:));
 max_signal_value = max(ADC(:));
 
